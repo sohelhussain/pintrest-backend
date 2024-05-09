@@ -15,6 +15,14 @@ const postSchema =  mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: user
     }],
+    users:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: user
+    }],
+    board:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: board
+    }]
 })
 
 module.exports = mongoose.model('post', postSchema);
