@@ -13,15 +13,15 @@ const postSchema =  mongoose.Schema({
     },
     likes:[{
         type: mongoose.Schema.Types.ObjectId,
-        ref: user
+        ref: "user"
     }],
     users:[{
         type: mongoose.Schema.Types.ObjectId,
-        ref: user
+        ref: "user"
     }],
     board:[{
         type: mongoose.Schema.Types.ObjectId,
-        ref: board
+        ref: "board"
     }]
 })
 

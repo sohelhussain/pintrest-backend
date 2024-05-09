@@ -10,11 +10,11 @@ const boardSchema =  mongoose.Schema({
     },
     users:[{
         type: mongoose.Schema.Types.ObjectId,
-        ref: user
+        ref: "user"
     }],
     pins:[{
         type: mongoose.Schema.Types.ObjectId,
-        ref: post
+        ref: "post"
     }]
 })
 

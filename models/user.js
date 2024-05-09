@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://1270.0.0:27017/pinejs');
+mongoose.connect('mongodb://127.0.0.1:27017/pinejs');
 
 const userSchema =  mongoose.Schema({
     email:{
@@ -14,8 +14,8 @@ const userSchema =  mongoose.Schema({
         trim: true
     },
     birthday:{
-        type: Number,
-        rquired: true,
+        type: Date,
+        required: true,
     },
     firstname:{
         trim: true,
@@ -43,7 +43,11 @@ const userSchema =  mongoose.Schema({
     },
     pins:[{
         type: mongoose.Schema.Types.ObjectId,
-        ref: post
+        ref: "post"
+    }],
+    board:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "board"
     }],
 })
 
