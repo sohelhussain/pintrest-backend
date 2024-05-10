@@ -9,11 +9,10 @@ const bcrypt =  require('bcrypt');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index',{navLog: false, nav: true});
 });
-router.get('/profile', isloggedin,function(req, res, next) {
-  console.log(req.cookies.token);
-  res.render('profile');
+router.get('/feed', isloggedin,function(req, res, next) {
+  res.render('feed', {navLog: true, nav: false});
 });
 
 router.post('/register', (req, res, next) => {
@@ -27,7 +26,7 @@ router.post('/register', (req, res, next) => {
       })
       const token = jwt.sign({email, userid: user._id}, 'secret')
       res.cookie("token", token)
-      res.redirect('/profile');
+      res.redirect('/feed');
     });
   })
 });
@@ -45,7 +44,7 @@ router.post('/login', async (req, res) => {
     if(result){
       const token = jwt.sign({email, userid: user._id}, 'secret')
       res.cookie("token", token)
-      res.redirect('/profile');
+      res.redirect('/feed');
     }
     else{
       res.send('password is wrong');
