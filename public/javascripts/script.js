@@ -23,5 +23,8 @@ const navSlide = () => {
     });
    
 }
-
 navSlide();
+
+$('#arr-right').addEventListener('click',() => {
+    console.log("span");
+});

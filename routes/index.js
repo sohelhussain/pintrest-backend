@@ -8,13 +8,15 @@ const bcrypt =  require('bcrypt');
 
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', (req, res, next) => {
   res.render('index',{navLog: false, nav: true});
 });
-router.get('/feed', isloggedin,function(req, res, next) {
+router.get('/feed', isloggedin,(req, res, next) => {
   res.render('feed', {navLog: true, nav: false});
 });
-
+router.get('/postCreate', isloggedin,(req, res, next) => {
+  res.render('post', {navLog: true, nav: false});
+})
 router.post('/register', (req, res, next) => {
   const {email, password, date} = req.body;
   bcrypt.genSalt(9, (err, salt) => {
@@ -30,12 +32,10 @@ router.post('/register', (req, res, next) => {
     });
   })
 });
-
 router.get('/logout', (req, res) => {
   res.cookie('token', "")
   res.redirect("/")
 });
-
 router.post('/login', async (req, res) => {
   const {email, password} = req.body;
   let user = await userModel.findOne({email});
@@ -51,12 +51,10 @@ router.post('/login', async (req, res) => {
     }
   })
 })
-
 function isloggedin(req, res, next) {
   if(req.cookies.token === "") res.redirect('/');
   else{
     const data = jwt.verify(req.cookies.token, 'secret');
-    console.log(data)
     req.user = data
   }
   next()

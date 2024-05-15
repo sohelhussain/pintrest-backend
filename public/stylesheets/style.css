@@ -14,29 +14,27 @@ width: 100%;
 .containers
 {
   /* padding-top: 13vh; */
-  width: 100vw;
+  width: 99vw;
   min-height: 100vh;
-  background-color: red;
   margin: auto;
   columns: 6;
   /* column-gap: 20px; */
   
 } 
- .container .box
+ .containers .box
 {
   width: 100%;
   margin-bottom: 10px;
   break-inside: avoid;
   border-radius: 15px;
+  margin-top: 10px;
 }
-.container .box img
+.containers .box img
 {
   max-width: 100%;
   min-width: 100%;
   border-radius: 10px;
 }
-
-
  img:hover {
   opacity: .95;
   box-shadow: 0 0 10px #fff;
