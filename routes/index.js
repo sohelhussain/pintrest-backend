@@ -18,7 +18,7 @@ router.get('/postCreate', isloggedin,(req, res, next) => {
   res.render('post', {navLog: true, nav: false});
 })
 router.post('/create', isloggedin,(req, res, next) => {
-  
+  postModel
 });
 router.post('/register', (req, res, next) => {
   const {email, password, date} = req.body;
