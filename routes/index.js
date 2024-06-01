@@ -21,6 +21,9 @@ router.post('/create', isloggedin,(req, res, next) => {
   const {} = req.body;
   postModel.create({})
 });
+router.get('/explore', isloggedin,(req, res, next) => {
+  res.send("this is an exploration page");
+});
 router.post('/register', (req, res, next) => {
   const {email, password, date} = req.body;
   bcrypt.genSalt(9, (err, salt) => {
